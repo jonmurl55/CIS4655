@@ -1,0 +1,617 @@
+<!DOCTYPE html> 
+<html><head>
+<meta charset="utf-8">
+<title>Jonny's Mobile Web App</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google-signin-client_id" content="958336807908-v7ca7552qsu3gc2m45bm37uiupmn2u8p.apps.googleusercontent.com">
+<meta name="google-signin-scope" content="profile email">
+
+<link href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="styles/DScolors.min.css">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/custom.css">
+<link href="jQueryAssets/jquery.ui.datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.datepicker.min.js"></script>
+</head> 
+<body> 
+
+<!--  image from http://thedroneinfo.com/what-is-a-drone/ -->
+
+<div id="page" data-role="page" data-theme="a">
+ <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+    <a class="navbar-brand"></a></div>
+    	   <img src="images/Logo.png" width= "50">
+
+  </div>
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">UAVLog</h1>
+          <p class="text-center">Coveniently store your drone flights and records all in one convenient place!</p>
+        </div>
+</div>
+    </div>
+  </div>
+	 </header>
+  
+   <div class="container">
+
+	   <center><div class="g-signin2" data-onsuccess="onSignIn"</div></center>
+  	<a href="#" onclick="signOut();">Sign out</a>
+	   
+	   <script>
+		   
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
+
+
+
+  	<br></br>
+	 <center><img src="images/o-DRONES-UTAH-facebook1.jpg" alt="" width="160" height="80" class="img-rounded" align="middle" al/></center>		 
+	</div>
+	 <br></br>
+	 
+<div class="col-lg-12" data-role="content">			
+               <center><a href="#section1" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Airplane.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>Flight Log</b></center>		
+</div>
+
+<div class="col-lg-12" data-role="content">			
+               <center><a href="#section15" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Airplane.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>SignUp</b></center>		
+</div>
+
+<div class="col-lg-12" data-role="content">			
+               <center><a href="#section20" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Airplane.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>Login</b></center>		
+</div>
+	
+	<div class="col-lg-12" data-role="content">
+         <center><a href="#section2" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Entypo_d83c(0)_256.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>GeoLocation</b></a></center>	
+	  </div>
+	  
+ <div class="col-lg-12" data-role="content">
+         <center><a href="#section6" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Folder.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>Records</b></a></center>	
+	  </div>
+     
+ <div class="col-lg-12" data-role="content">
+         <center><a href="test.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Weather.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>Weather/Testing</b></a></center>	
+	  </div>
+     
+  <div class="col-lg-12" data-role="content">
+         <center><a href="#section7" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Contact.png" style="width: 140px; height: 140px;"></a>
+				   <br></br>
+	               <b>Contact US</b></a></center>	
+	  </div>
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well"></div>
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+
+<div id="section1" data-role="page" data-theme="a">
+
+ <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Log your flight here</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+  
+ </nav>
+	<div data-role="content">
+	 <div data-role="content">
+			<div>
+		            <center> <form method="post" action="insertrecord.php">
+                  <table width="400" border="0" cellspacing="1" cellpadding="2">
+
+                     <tr>
+						 <td width="100"><b>Flight Time</b></td>
+                        <td><input name="ftime" type="text" id="ftime"></td>
+                     </tr>
+                     <tr>
+						 <td width="100"><b>Launch Time</b></td>
+                        <td><input name="ltime" type="datetime" id="ltime"></td>
+                     </tr>
+                     <tr>
+						 <td width="100"><b>Aircraft Number</b></td>
+                        <td><input name="aircraft_id" type="text" id="aircraft_id"></td>
+                     </tr>
+
+                     <tr>
+						 <td width="100"><b>GeoLocation</b></td>
+                        <td><input name="geo" type="text" id="geo"></td>
+                     </tr>
+
+
+                     <tr>
+                        <td width="100"> </td>
+                        <td>
+                           <input name="add" type="submit" id="add" value="Add Flight Record">
+                        </td>
+                     </tr>
+
+                  </table>
+               </form>
+	</div></center>
+	</div>
+	  
+	
+	  
+
+	</div>
+   
+		<div class="well"></div>		
+	
+    
+	<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+<div id="section20" data-role="page" data-theme="a">
+
+ <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Log on</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+  
+ </nav>
+	<div data-role="content">
+			<div>
+	           
+	           <form name ="form1" method ="post" ACTION ="login.php">
+
+Username: <input type = 'text' Name ='username'  value="" maxlength="20">
+Password: <input type = 'text' Name ='password'  value="" maxlength="16">
+
+<p align = center>
+<input type = "Submit" name = "Submit1"  value = "Login">
+</p>
+
+</form>
+
+<P>
+<?PHP print $errorMessage;?>
+
+           
+	</div>
+	</div>
+   
+		<div class="well"></div>		
+	
+    
+	<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+
+<div id="section2" data-role="page" data-theme="a" data-add-back-btn="true">
+<nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Find your current geolocation.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+ </nav>
+
+	<div data-role="content">	
+	  <h3 class="text-center">Use the botton below to calculate your geolocation</h3>
+	  <p class="text-center"> Ensure your device's GPS is enabled for a more accurate location</p>
+	</div>
+	
+<div>
+ <button onclick="getLocation()">Click Me</button>
+<p class="text-center" id="geoloc"></p>
+	  </div>
+
+<!--The following geolocation template was taken from W3 schools-->
+<script>
+var x = document.getElementById("geoloc");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude; 
+}
+	
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+	</script>
+  		
+  			
+  				
+  						
+		<div class="well"></div>		
+	
+    
+	<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+
+<div data-role="page" id="section6" data-theme="a" data-add-back-btn="true">
+
+ <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Records</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+ </header>
+</nav>
+
+  <h1 class="text-center">Search Previous Records</h1>
+  <div data-role="content">
+		         <center><form method="post" action="showrecord.php">
+                  <table width="400" border="0" cellspacing="1" cellpadding="2">
+                     <tr>
+						 <td width="100"><b>Flight Time</b></td>
+                        <td><input name="ftime" type="text" id="ftime"></td>
+                     </tr>
+
+                     <tr>
+						 <td width="100"><b>Launch Time</b></td>
+                        <td><input name="ltime" type="time" id="ltime"></td>
+                     </tr>
+
+					  <tr>
+						  <td width="100"><b>Aircraft S/N</b></td>
+                        <td><input name="aircraft_id" type="text" id="aircraft_id"></td>
+                     </tr>
+                   
+                     <tr>
+                        <td width="100"> </td>
+                        <td>
+                           <input name="search" type="submit" id="add" value="Search Records">
+                        </td>
+                     </tr>
+
+                    
+
+                  </table>
+					 </form></center>
+					 
+					 <center><form method="post" action="displaylist.php">
+                  <table width="400" border="0" cellspacing="1" cellpadding="2">
+                   <tr>
+                        <td width="100"> </td>
+                        <td>
+                           <input name="find" type="submit" id="add" value="See All">
+                        </td>
+                     </tr>
+						 </table></form></center>
+                  
+	</div>
+
+    
+	<div class="well"></div>		
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+<div data-role="page" id="section15" data-theme="a" data-add-back-btn="true">
+
+ <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Sign Up!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+ </header>
+</nav>
+
+  <div data-role="content">
+		       
+					 
+<form name="form1" method="post" action="signup.php">
+Username: <input type = 'text' name ='username'  value="" maxlength="20">
+Password: <input type = 'text' name ='password'  value="" maxlength="16">
+
+<p align = center>
+<input type = "submit" name = "Submit1"  value = "Register">
+</p>
+
+</form>
+<p>
+<?PHP print $errorMessage;?>
+                  
+	</div>
+
+    
+	<div class="well"></div>		
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+<div id="section10" data-role="page" data-theme="a">
+
+ <nav class="ui-navbar">
+   <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+  <header>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Weather</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+  
+ </nav>
+	<div data-role="content">
+	  <h3 class="text-center"> Contract Sign Up</h3>
+	  <p class="text-center"> Select an available project you are able to fly </p>
+	</div>
+	<form action="jonsserver.php" method="get">
+	  <div data-role="fieldcontain">
+	    <label for="passwordinput2">Please login before selecting job:</label>
+	    <input type="password" name="passwordinput2" id="passwordinput2" value=""  />
+      </div>
+	
+	<!--  Menu idea from https://api.jquerymobile.com/selectmenu/ -->
+	<!-- This menu would populate selctions from a linked database -->
+	<div class="ui-select"><select name="select-choice-1" id="select-choice-custom" data-native-menu="false" tabindex="-1">
+				<option value="option1"> 11/23/2016 @1:00PM, Pipeline</option>
+				<option value="option2">11/25/2016 @10:00AM, Powerline</option>
+				<option value="option3">12/5/2016 @2:00PM, Powerline</option>
+	</select><div style="display: none;" id="select-choice-custom-listbox-placeholder"></div>
+   </div>
+	<br></br>
+          <input type="submit" value="Submit"/>
+	</form>
+    <div class="well"></div>
+    
+	<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<div data-role="page" id="section7" data-theme="a" data-add-back-btn="true">
+  
+  <nav class="ui-navbar">
+  <div class="container-fluid">
+   <div class="navbar-header">
+	   <center><a href="index.html" data-transition="pop" role="button" data-holder-rendered="true"> <img src="images/Logo.png" width="50">
+	   <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+  </div>
+  
+ <header>
+  <div class="jumbotron"><div class="col-xs-12">
+          <h1 class="text-center">Contact us with any questions or comments, we would love to hear from you!</h1>
+        </div>
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+  </div>
+ </header>
+</nav>
+    
+              <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form taken from Dreamweaver template-->
+
+    <div class="jumbotron">
+        <div class="row text-center">
+          <div class="text-center col-lg-12"> 
+            <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
+            <form role="form" id="feedbackForm" class="text-center">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                <span class="help-block" style="display: none;">Please enter your name.</span></div>
+              <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                <span class="help-block" style="display: none;">Please enter a valid e-mail address.</span></div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea rows="10" cols="" class="form-control" id="message" name="message" placeholder="Message"></textarea>
+                <span class="help-block" style="display: none;">Please enter a message.</span></div>
+              <span class="help-block" style="display: none;">Please enter a the security code.</span>
+              <button type="submit" id="feedbackSubmit" class="btn btn-group-sm " style=" margin-top: 10px;">Submit</button>
+            </form>
+            <!-- END CONTACT FORM --> 
+          </div>
+        </div>
+    </div>
+  
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright 2017 © JMurlowski UAVLog. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</nav>
+
+<script type="text/javascript">
+$(function() {
+	$( "#Datepicker1" ).datepicker(); 
+});
+$(function() {
+	$( "#Datepicker2" ).datepicker(); 
+});
+</script>
+</body>
+</html>
